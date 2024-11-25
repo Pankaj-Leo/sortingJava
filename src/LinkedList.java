@@ -57,6 +57,8 @@ public class LinkedList {
         }
     }
 
+
+
     public static void main(String[] args) {
 
         LinkedList myLinkedList = new LinkedList(4);
@@ -72,6 +74,8 @@ public class LinkedList {
         myLinkedList.removeFirst();
         myLinkedList.printAll();
         myLinkedList.remove(3);
+        myLinkedList.printAll();
+        myLinkedList.reverse();
         myLinkedList.printAll();
     }
 
@@ -187,6 +191,19 @@ public class LinkedList {
         temp.next = null;
         length --;
         return temp;
+    }
+
+    public void reverse() {
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
     }
 
 
